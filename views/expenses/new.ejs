@@ -1,0 +1,56 @@
+<%layout("layouts/boilerplate.ejs")%>
+  <body >
+    <div class="row">
+      <div class="col-8 offset-2" >
+    <form method="POST" action="/expenses">
+      <div class="mb-3">
+        <label for="name" class="form-label mt-4">Your Name</label>
+        <input type="text" placeholder="Who are you?" name="expenses[name]" class="form-control" />
+        <br />
+      </div>
+      <div lass="mb-3">
+        <label for="description" class="form-label">Description</label>
+      <textarea
+        placeholder="Describe The Expense"
+        rows="3"
+        cols="8"
+        class="form-control"
+        name="expenses[description]"
+      ></textarea>
+      </div>
+      <br />
+      <div lass="mb-3">
+        <label for="PhoneNumber" class="form-label" >Number</label>
+        <input
+          type="number"
+          placeholder="Enter Phone Number"
+          name="expenses[PhoneNumber]"
+          class="form-control"
+        />
+        <br />
+      </div>
+      <div lass="mb-3">
+        <label for="expenses" class="form-label">Amount </label>
+        <input
+          type="number"
+          placeholder="Enter the Expense Price"
+          name="expenses[expenses]"
+          class="form-control"
+        />
+        <br />
+      </div>
+      <div lass="mb-3">
+        <label for="to" class="form-label">To Whom </label>
+        <input
+          type="text"
+          placeholder="Enter Other Person Name"
+          name="expenses[to]"
+          class="form-control"
+        />
+        <br />
+      </div>
+      <button class="btn btn-success mb-4" type="submit">ADD</button>
+    </form>
+  </body>
+</div>
+</div>

@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    background-color: #D6C0B3 !important;
+    border: 2px solid #493628 !important;
+}
+.navbar-brand .material-symbols-outlined{
+    color: #493628 !important;
+}
+.nav-link{
+    font-weight: 600!important;
+    color: #222222!important;
+}
+.newExpense{
+    text-decoration: none;
+    color: #493628;
+}
+footer {
+    background-color: #D6C0B3; /* Light grey background to match the example */
+    padding: 20px 0;
+    text-align: center;
+        /* margin-top: auto;
+        position: absolute;
+        bottom: 0;
+        width: 100%; */
+
+}
+
+.f-info {
+    display: flex;
+    flex-direction: column; /* Stack items in a column */
+    align-items: center;
+    gap: 10px; /* Space between each row */
+    font-size: 14px;
+    color: #333; /* Dark color for text */
+}
+
+.f-infosocial {
+    margin-bottom: 10px; /* Space below social icons */
+    color: black;
+}
+.f-anchor{
+    color: #222222;
+    text-decoration: none;
+}
+
+.f-infosocial i {
+    margin: 0 5px;
+    font-size: 20px; /* Adjust icon size */
+    opacity: 0.7;
+}
+.f-infosocial i:hover{
+    opacity: 1;
+}
+
+.f-company {
+    margin: 10px 0; /* Space around company name */
+}
+
+.f-infolinks a {
+    color: #007bff; /* Blue color for links */
+    margin: 0 5px; /* Space between Privacy and Terms links */
+    text-decoration: none;
+}
+
+.f-infolinks a:hover {
+    text-decoration: underline;
+}
+.form-label{
+    font-weight: 600;
+}
+.container{
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+    /* top: 50px; */
+    background-color: #E4E0E1;
+    padding: 80px 80px;
+    /* border: 2px solid #493628; */
+    border-radius: 50px;
+
+}
+.card1{
+    justify-content: center;
+    align-items: center;
+}
