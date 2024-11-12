@@ -1,34 +1,31 @@
 <% layout("layouts/boilerplate.ejs") %>
 
-<body style="background-color: #E4E0E1;">
-  <h3>All Expenses</h3>
-  <form>
-    <button class="btn btn-outline-success mb-4"><a class="newExpense" href="/expenses/new">New Expense</a></button>
-  </form>
-  
-  <div class="container ">
-    <div class="row">
-      <% 
-        const colors = ["bg-primary", "bg-secondary", "bg-success", "bg-danger", "bg-warning", "bg-info"];
-      %>
-      
-      <% for (let i = 0; i < allExpense.length; i++) { %>
-        <div class="col-md-4 mb-4">
-          <div class="card <%= colors[i % colors.length] %> text-white">
-            <div class="card-header">From: <%= allExpense[i].name %></div>
-            <div class="card-body">
-              <h5 class="card-title">To: <%= allExpense[i].to %></h5>
-              <p class="card-text">
-                Phone Number: <%= allExpense[i].phoneNumber %><br>
-                Expenses: ₹<%= allExpense[i].expenses ? allExpense[i].expenses.toLocaleString("en-IN") : "N/A" %><br>
-                Description: <%= allExpense[i].description %>
-              </p>
-              <a href="/expenses/<%= allExpense[i]._id %>" class="btn btn-light">SHOW</a>
-            </div>
-          </div>
-        </div>
-      <% } %>
-    </div>
+<div class="containe-fluid p-4" style="background-color: #E4E0E1;">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="m-0">All Expenses</h3>
+    <a href="/expenses/new" class="btn btn-outline-success">New Expense</a>
   </div>
   
-</body>
+  <div class="row g-3"> <!-- Changed to g-3 for consistent gap -->
+    <% 
+      const colors = ["bg-primary", "bg-secondary", "bg-success", "bg-danger", "bg-warning", "bg-info"];
+    %>
+    
+    <% for (let i = 0; i < allExpense.length; i++) { %>
+      <div class="col-md-4">  <!-- Removed mb-4 as g-3 handles spacing -->
+        <div class="card <%= colors[i % colors.length] %> text-white shadow-sm">
+          <div class="card-header fw-bold">From: <%= allExpense[i].name %></div>
+          <div class="card-body">
+            <h5 class="card-title">To: <%= allExpense[i].to %></h5>
+            <p class="card-text">
+              Phone Number: <%= allExpense[i].phoneNumber %><br>
+              Expenses: ₹<%= allExpense[i].expenses ? allExpense[i].expenses.toLocaleString("en-IN") : "N/A" %><br>
+              Description: <%= allExpense[i].description %>
+            </p>
+            <a href="/expenses/<%= allExpense[i]._id %>" class="btn btn-light">SHOW</a>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</div>

@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
 }
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
 .navbar{
     background-color: #D6C0B3 !important;
     border: 2px solid #493628 !important;
@@ -18,23 +24,20 @@
     color: #493628;
 }
 footer {
-    background-color: #D6C0B3; /* Light grey background to match the example */
+    background-color: #D6C0B3;
     padding: 20px 0;
     text-align: center;
-        /* margin-top: auto;
-        position: absolute;
-        bottom: 0;
-        width: 100%; */
-
+    width: 100%;
+    margin-top: auto; /* This pushes the footer to the bottom */
 }
 
 .f-info {
-    display: flex;
-    flex-direction: column; /* Stack items in a column */
+     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px; /* Space between each row */
+    gap: 10px;
     font-size: 14px;
-    color: #333; /* Dark color for text */
+    color: #333;
 }
 
 .f-infosocial {
@@ -71,19 +74,25 @@ footer {
 .form-label{
     font-weight: 600;
 }
-.container{
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    /* position: relative; */
-    /* top: 50px; */
-    background-color: #E4E0E1;
-    padding: 80px 80px;
-    /* border: 2px solid #493628; */
-    border-radius: 50px;
-
-}
 .card1{
     justify-content: center;
     align-items: center;
+}
+.container {
+    flex: 1;  /* This makes the container take up remaining space */
+    justify-content: center;
+    align-items: center;
+    background-color: #E4E0E1;
+    padding: 80px 80px;
+    border-radius: 50px;
+    margin-bottom: 20px; /* Add some space above footer */
+}
+.container1{
+    flex: 1;  /* This makes the container take up remaining space */
+    justify-content: center;
+    align-items: center;
+    background-color: #E4E0E1;
+    padding: 80px 80px;
+    border-radius: 50px;
+    margin-bottom: 20px; /* Add some space above footer */
 }

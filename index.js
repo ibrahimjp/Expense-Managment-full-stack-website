@@ -6,6 +6,9 @@ const Expense = require("./models/expenses");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const path = require("path");
+const wrapasync=require("./utils/wrapasync");
+const ExpressError=require("./utils/expressError");
+const {expenseSchema}=require("./schema");
 
 main().then(() => {
   console.log("connected To DB");
@@ -26,6 +29,15 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Use EJS Mate
 app.engine("ejs", ejsMate);
+const validateListing = (req,res,err) => {
+  const {error}= expenseSchema.validate(req.body);
+  if(error){
+      let errmess=error.details.map((el) => el.message).join(",");
+      throw new ExpressError(400,errmess);
+  }else{
+      next();
+  }
+};
 
 // Check working route
 app.get("/", (req, res) => {
@@ -34,15 +46,13 @@ app.get("/", (req, res) => {
 });
 
 // Index Route
-app.get("/expenses", async (req, res) => {
-  try {
+app.get("/expenses",wrapasync( async (req, res) => {
+
     const allExpense = await Expense.find({});
     console.log(allExpense);
     res.render("expenses/index", { allExpense });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+
+}));
 
 // Create New Expense Form
 app.get("/expenses/new", async (req, res) => {
@@ -51,17 +61,15 @@ app.get("/expenses/new", async (req, res) => {
 });
 
 // Create Expense - POST
-app.post("/expenses", async (req, res) => {
-  const { name, to, phoneNumber, expenses, description } = req.body;
-  console.log("Received Data:", req.body);
-  
-  try {
+app.post("/expenses",wrapasync( async (req, res) => {
+  // Adjusted to access `expenses` object
+  const { name, to, phoneNumber, expenses, description } = req.body.expenses;
+  console.log("Received Data:", req.body.expenses);
     await Expense.create({ name, to, phoneNumber, expenses, description });
     res.redirect("/expenses");
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+
+}));
+
 
 // Edit Expense Form
 app.get("/expenses/:id/edit", async (req, res) => {
@@ -83,11 +91,11 @@ app.delete("/expenses/:id", async (req, res) => {
 });
 
 // Show Expense Route
-app.get("/expenses/:id", async (req, res) => {
+app.get("/expenses/:id",wrapasync( async (req, res) => {
   let { id } = req.params;
   const expenseid = await Expense.findById(id);
   res.render("expenses/show", { expenseid });
-});
+}));
 
 // Start Server
 app.listen(8080, () => {
