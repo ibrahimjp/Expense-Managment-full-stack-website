@@ -1,0 +1,28 @@
+<%layout("layouts/boilerplate.ejs")%>
+<body>
+  <div class="container">  <div class="row justify-content-center"> <div class="col-md-6"> <h3 style="align-items: center; text-align: center;">Expenses Details</h3>
+
+        <div class="card card1" style="border-color: #ddd;">
+            <img src="https://i.pinimg.com/originals/3f/a3/02/3fa3022319f6112ff32f123cc42582c0.jpg" class="card-img-top animation pulse" alt="..." style="width: 300px; height: 200px; align-items: center; justify-content: center; text-align: center;" />            
+            <h5 class="card-title"><%= expenseid.name %></h5>
+            <p class="card-text"><b>For:</b> <%= expenseid.description %></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center">   
+
+              To: <%= expenseid.to %>
+              <span class="badge bg-primary rounded-pill">₹<%= expenseid.expenses.toLocaleString("en-IN") %></span>
+            </li>
+            <li class="list-group-item">phoneNumber: <%= expenseid.phoneNumber %></li>
+          </ul>
+          <div class="card-body d-flex justify-content-between">
+            <a href="/expenses/<%=expenseid._id %>/edit" class="btn btn-primary">Edit</a>
+            <form action="/expenses/<%=expenseid._id %>?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-danger">DELETE</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

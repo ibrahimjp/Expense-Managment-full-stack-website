@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "proxy": "http://localhost:8080/api/v1",
   "name": "client",
   "version": "0.1.0",
@@ -58,5 +59,24 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16"
+=======
+  "name": "expense-managment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.21.1",
+    "joi": "^17.13.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.8.0"
+>>>>>>> b253dfc740b51b49e053111c3cdc65fa3e63afda
   }
 }
