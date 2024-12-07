@@ -1,15 +1,12 @@
 {
-<<<<<<< HEAD
   "proxy": "http://localhost:8080/api/v1",
   "name": "client",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "antd": "^5.22.3",
     "axios": "^1.7.7",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
@@ -29,7 +26,13 @@
     "stream-http": "^3.2.0",
     "url": "^0.11.4",
     "util": "^0.12.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.21.1",
+    "joi": "^17.13.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -59,24 +62,5 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16"
-=======
-  "name": "expense-managment",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "ejs": "^3.1.10",
-    "ejs-mate": "^4.0.0",
-    "express": "^4.21.1",
-    "joi": "^17.13.3",
-    "method-override": "^3.0.0",
-    "mongoose": "^8.8.0"
->>>>>>> b253dfc740b51b49e053111c3cdc65fa3e63afda
   }
 }
